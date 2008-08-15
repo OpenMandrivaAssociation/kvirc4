@@ -30,19 +30,10 @@ BuildRequires:	qt4-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	perl-devel
 BuildRequires:	gettext
-Requires:	kvirc-icons
 
 %description
 Qt-based IRC client with support for themes, transparency, encryption,
 many extended IRC features, and scripting.
-
-%package -n kvirc-icons
-Summary:	Icons for KVirc
-Group:		Networking/IRC
-
-%description -n kvirc-icons
-This package contains icons for KVirc. It is a separate package so
-multiple versions of KVirc can be packaged without conflicting.
 
 %package -n %{libname}
 Summary:	Shared library for KVirc 4
@@ -67,7 +58,7 @@ Development headers for KVirc 4.
 %build
 # To avoid any possible occurrence of the OpenSSL / GPL license issue
 # - AdamW 2008/08
-%cmake -DWITH_KDE4=true -DWITHOUT_SSL=true
+%cmake -DWITH_KDE4=true -DWITHOUT_SSL=true -DLIB_INSTALL_PREFIX=%{_libdir}
 %make
 
 %install
@@ -97,11 +88,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %{_bindir}/*
 %{_datadir}/%{oname}/4.0
+%{_iconsdir}/hicolor/*/apps/*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/mimelnk/*/*.desktop
-
-%files -n kvirc-icons
-%{_iconsdir}/hicolor/*/apps/*
 
 %files -n %{libname}
 %defattr(-,root,root)
