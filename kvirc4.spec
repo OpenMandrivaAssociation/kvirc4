@@ -1,6 +1,6 @@
 %define oname	kvirc
 
-%define svn	2253
+%define svn	2417
 %define rel	1
 
 %if %svn
@@ -24,7 +24,8 @@ Summary:	Qt IRC client
 Group:		Networking/IRC
 License:	GPLv2+
 URL:		http://www.kvirc.net
-Source:		%{distname}
+Source0:	%{distname}
+Patch0:		kvirc-4.0.0-desktop.patch
 BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}
 BuildRequires:	qt4-devel
 BuildRequires:	kdelibs4-devel
@@ -54,11 +55,10 @@ Development headers for KVirc 4.
 
 %prep 
 %setup -q -n %{dirname}
+%patch0 -p1
 
 %build
-# To avoid any possible occurrence of the OpenSSL / GPL license issue
-# - AdamW 2008/08
-%cmake -DWITH_KDE4=true -DWITHOUT_SSL=true -DLIB_INSTALL_PREFIX=%{_libdir}
+%cmake -DWITH_KDE4=true -DLIB_INSTALL_PREFIX=%{_libdir}
 %make
 
 %install
