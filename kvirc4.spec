@@ -1,7 +1,7 @@
 %define oname	kvirc
 
 %define svn	2417
-%define rel	1
+%define rel	2
 
 %if %svn
 %define release		%mkrel 0.%svn.%rel
