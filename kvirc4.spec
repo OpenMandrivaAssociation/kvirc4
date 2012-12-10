@@ -1,7 +1,7 @@
 %define oname	kvirc
 
 %define svn	2417
-%define rel	2
+%define rel	1
 
 %if %svn
 %define release		%mkrel 0.%svn.%rel
@@ -99,4 +99,21 @@ rm -rf %{buildroot}
 %files  -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libkvilib4.so
+
+
+
+%changelog
+* Sun Sep 07 2008 Adam Williamson <awilliamson@mandriva.com> 4.0.0-0.2417.1mdv2009.0
++ Revision: 282235
+- update license
+- enable SSL support, as the license has the proper exception now
+- fix .desktop 'run' command (reported by Adam Pigg)
+- new snapshot 2417
+
+* Fri Aug 15 2008 Adam Williamson <awilliamson@mandriva.com> 4.0.0-0.2253.1mdv2009.0
++ Revision: 272474
+- fix libdir on x86-64
+- drop separate icon package (not needed)
+- import kvirc4
+
 
