@@ -23,7 +23,7 @@ Release:	%{release}
 Summary:	Qt IRC client
 Group:		Networking/IRC
 License:	GPLv2+ with exceptions
-URL:		http://www.kvirc.net
+URL:		https://www.kvirc.net
 Source0:	%{distname}
 Patch0:		kvirc-4.0.0-desktop.patch
 BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}
