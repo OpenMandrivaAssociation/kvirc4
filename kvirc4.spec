@@ -27,6 +27,7 @@ URL:		https://www.kvirc.net
 Source0:	%{distname}
 Patch0:		kvirc-4.0.0-desktop.patch
 BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}
+BuildRequires:	make
 BuildRequires:	qt4-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	perl-devel
